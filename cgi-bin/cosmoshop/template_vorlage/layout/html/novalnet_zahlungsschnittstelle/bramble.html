@@ -1,0 +1,327 @@
+%schnittstellen_parameter%
+
+<div id="novalnet_payment" class="secondInfoBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+    <div class="distanceHolder"></div>
+		<div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+            <div>%payment_name%</div>
+        </div>
+        <div class="distanceHolder"></div>
+    <TMPL_IF NAME="novalnet_display_logo">
+		<div class="box-1">
+			<img src="%novalnet_logo_url%">
+			<TMPL_IF NAME="novalnet_payment_cc">
+				<img src="%novalnet_cc_logo_url%">
+				<TMPL_IF NAME="novalnet_cc_amex_logo_url">
+					<img src="%novalnet_cc_amex_logo_url%">
+				</TMPL_IF>
+				<TMPL_IF NAME="novalnet_cc_mastero_logo_url">
+					<img src="%novalnet_cc_mastero_logo_url%">
+				</TMPL_IF>
+			</TMPL_IF>
+		</div>
+	</TMPL_IF>
+    <TMPL_IF NAME="novalnet_payment_sepa">
+        <div class="box-1">
+            <div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+                <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+                    <span class="font-2 color-3">%text_nnsepa_owner%</span>
+                </div>
+                <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+                    <input type="text" name="novalnet_sepa_owner" id="nnsepa_owner" value="%novalnet_sepa_holder%"autocomplete="off"/>
+                </div>
+            </div>
+            <div class="distanceHolder"></div>
+            <div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+                <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+                    <span class="font-2 color-3">%text_nnsepa_acno%</span>
+                </div>
+                <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+                    <input type="text" name="nnsepa_iban" id="nnsepa_iban" autocomplete="off"/>
+                </div>
+            </div>
+            <TMPL_IF NAME="novalnet_sepa_guarantee_payment_error">
+                <div class="distanceHolder"></div>
+                <div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+                    <div class="font-2" style="color:red"><TMPL_VAR NAME="novalnet_sepa_guarantee_payment_error_message"></div>
+                </div>
+            </TMPL_IF>
+            <TMPL_IF NAME="novalnet_sepa_show_dob">
+                <div class="distanceHolder"></div>
+                <div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row" style="display: <TMPL_VAR NAME="geburtsdatum_eingabe_display">">
+                <input type="hidden" name="check_birthday" value="1" />
+                    <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+                        <span class="font-2 color-3">%text_novalnet_birthday%</span>
+                    </div>
+                    <div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+
+						<input data-reqfield="false" placeholder="" type="date" id="novalnet_sepa_dob" name="novalnet_sepa_dob" value="%dob_value%" class="cosmoshop edit bday" onblur="colorize_input(this, false);">
+
+                    </div>
+                </div>
+            </div>
+            </TMPL_IF>
+            <div class="distanceHolder"></div>
+            <div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+                <label for="nnsepa_ibanconf" class="font-2 color-3"><span class="font-2"><a id="sepa_mandate" style="color: #666666;"><strong>%text_nnsepa_ibanconf%</strong></a></span>
+                <div class="distanceHolder"></div>
+                <div id="sepa_mandate_details_desc" style="display:none;border: 1px solid #c7c8ca;padding: 16px;padding: 1rem;border-radius: 5px;">
+					<p>%text_nnsepa_mandateAuthorise%</p>
+					<p><b>%text_nnsepa_mandateCreditor%</b></p>
+					<p><b>%text_nnsepa_mandateNote%</b>%text_nnsepa_mandateEntitled%</p>
+				</div>
+            </div>
+            <div class="distanceHolder"></div>
+    <div class="distanceHolder"></div>
+    <div class="nnPayment cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+        <span class="font-2">%text_novalnet_sepa_markup%</span>
+    </div>
+    </TMPL_IF>
+    <TMPL_IF NAME="novalnet_payment_cc">
+		<input type="hidden" name="novalnet_cc_hash" value="" id="novalnet_cc_hash">
+		<input type="hidden" name="novalnet_cc_uniqueid" value="" id="novalnet_cc_uniqueid">
+		<input type="hidden" name="novalnet_cc_css" value="%novalnet_cc_css%" id="novalnet_cc_css">
+		<input type="hidden" name="novalnet_cc_label" value="%novalnet_cc_label%" id="novalnet_cc_label">
+		<input type="hidden" name="novalnet_cc_input" value="%novalnet_cc_input%" id="novalnet_cc_input">
+            <div class="box-1">
+                <iframe src="%novalnet_iframe_url%"id = "nnIframe" name = "nnIframe" frameborder="0" onload="novalnetIframe()">
+                </iframe>
+            </div>
+            <script>
+                (function($) {
+                    $(document).ready(function() {
+						
+						document.getElementById("nnIframe").onload = function() {novalnetIframe()};
+						var novalnetTargetOrgin = 'https://secure.novalnet.de';
+						
+						$('#submit_button_2').on('click', function(event) {
+								event.preventDefault();
+								event.stopImmediatePropagation();
+								gethash();
+						});
+						
+						function novalnetIframe()
+						{
+							//Default iframe style
+								
+								var textObj   = {
+									card_holder: {
+										labelText: '',
+										inputText: '',
+									},
+									card_number: {
+										labelText: '',
+										inputText: '',
+									},
+									expiry_date: {
+										labelText: '',
+										inputText: '',
+									},
+									cvc: {
+										labelText: '',
+										inputText: '',
+									},
+									cvcHintText: '',
+									errorText: '',
+								};
+								
+							var request = {
+									callBack    : 'createElements',
+									customText: textObj,
+									customStyle : {
+										labelStyle : $('#novalnet_cc_label').val(),
+										inputStyle : $('#novalnet_cc_input').val(),
+										styleText  : $('#novalnet_cc_css').val(),
+										card_holder : {
+											labelStyle : '',
+											inputStyle : '',
+										},
+										card_number : {
+											labelStyle : '',
+											inputStyle : '',
+										},
+										expiry_date : {
+											labelStyle : '',
+											inputStyle : '',
+										},
+										cvc : {
+											labelStyle : '',
+											inputStyle : '',
+										},                
+									},
+								};
+								var iframe = $('#nnIframe')[0];
+								iframeContent = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument.defaultView;
+								iframeContent.postMessage(request, novalnetTargetOrgin);
+								iframeContent.postMessage({callBack : 'getHeight'}, novalnetTargetOrgin);
+						}
+						
+						if ( window.addEventListener) {
+							window.addEventListener('message', function (e) {
+								addEvent(e);
+							}, false);
+						} else {
+							window.attachEvent('onmessage', function (e) {
+								addEvent(e);
+							});
+						}
+						
+						function addEvent(e)
+						{
+								if (e.origin === 'https://secure.novalnet.de') {
+								  var data = Function('"use strict";return (' + e.data + ')')();
+									if (data['callBack'] == 'getHash') {
+										e.preventDefault();
+										if (data['error_message'] != undefined) {
+											jq_alert(data['error_message']);
+										} else {
+											$('#novalnet_cc_hash').val(data['hash']);
+											$('#novalnet_cc_uniqueid').val(data['unique_id']);
+											$("input[name='pan_hash'").val(data['hash']);
+											$("input[name='unique_id'").val(data['unique_id']);
+											$('#buyform').submit();
+
+										}
+									} else if (data['callBack'] == 'getHeight') {
+										$('#nnIframe').attr('height',data['contentHeight']);
+										e.preventDefault();
+									}
+								}
+						}
+						
+						// Function to retrieve hash from iframe
+						function gethash() {
+							var iframe= $('#nnIframe')[0].contentWindow ? $('#nnIframe')[0].contentWindow : $('#nnIframe')[0].contentDocument.defaultView;
+							iframe.postMessage(JSON.stringify({callBack: 'getHash'}), novalnetTargetOrgin);
+						}
+                    });
+                    
+                })(jQuery);
+            </script>
+            <style>
+            </style>
+        <TMPL_IF NAME="novalnet_cc_redirect">
+		<TMPL_ELSE>
+			<div class="distanceHolder"></div>
+				<div class="nnPayment cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+				<span class="font-2">%text_novalnet_cc_markup%</span>
+			</div>
+		</TMPL_IF> 
+    </TMPL_IF>    
+    <TMPL_IF NAME="novalnet_payment_inv_prepayment">
+		<TMPL_IF NAME="novalnet_invoice">
+			<div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+				<TMPL_IF NAME="novalnet_invoice_guarantee_payment_error">
+					<div class="box-1">
+						<div class="distanceHolder"></div>
+						<div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+							<div class="font-2" style="color:red"><TMPL_VAR NAME="novalnet_invoice_guarantee_payment_error_message"></div>
+						</div>
+					</div>
+				</TMPL_IF>
+				<TMPL_IF NAME="novalnet_invoice_show_dob">
+					<div class="box-1">
+						<div class="distanceHolder"></div>
+						<div class="cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row" style="display: <TMPL_VAR NAME="geburtsdatum_eingabe_display">">
+							<input type="hidden" name="check_birthday" value="1" />
+							<div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+								<span class="font-2 color-3">%text_novalnet_birthday%</span>
+							</div>
+							<div class="cosmo-col-lg-3 cosmo-col-tb-la-3 cosmo-col-tb-po-3 cosmo-col-sp-12 cosmo-columns-lg-2 cosmo-columns-tb-la-2 cosmo-columns-tb-po-2 cosmo-float">
+								<input data-reqfield="false" placeholder="" type="date" id="novalnet_invoice_dob" name="novalnet_invoice_dob" value="%dob_value%" class="cosmoshop edit bday" onblur="colorize_input(this, false);">
+							 </div>
+						</div>
+					</div>
+				</TMPL_IF>
+				<div class="distanceHolder"></div>
+			</div>
+        </TMPL_IF>
+        <div class="distanceHolder"></div>  
+        <div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+            <span class="font-2">%text_novalnet_inv_prepayment_markup%</span>
+        </div>
+    </TMPL_IF>
+    <TMPL_IF NAME="novalnet_payment_barzahlen">
+        <div class="distanceHolder"></div>  
+        <div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+            <span class="font-2">%text_novalnet_barzahlen_markup%</span>
+        </div>
+    </TMPL_IF>
+    <TMPL_IF NAME="novalnet_payment_redirect">
+        <TMPL_LOOP NAME="request_params">
+            <input type="hidden" name="%name%" value="%value%">
+        </TMPL_LOOP>
+        <div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+            <span class="font-2">%text_novalnet_redirect_markup%</span>
+        </div>
+        <div class="nnSepaFirstBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+            <span class="font-2" style="color:#e28131">%text_novalnet_redirect_warnning_markup%</span>
+        </div>
+        <script>
+        </script>
+    </TMPL_IF>
+	
+	<TMPL_IF NAME="novalnet_notify_buyer">
+        <div class="distanceHolder"></div>
+        <div class="font-2">
+            <span>%novalnet_notify_buyer%</span>
+        </div>
+        <div class="distanceHolder"></div>
+    </TMPL_IF>
+    
+    <TMPL_IF NAME="novalnet_test_mode">
+        <div class="font-2" style="color:red">
+            <span>%text_novalnet_test_transaction%</span>
+        </div>
+        <div class="distanceHolder"></div>
+    </TMPL_IF>
+</div>
+
+<div class="distanceHolder"></div>
+<div class="distanceHolder"></div>
+<TMPL_IF NAME="novalnet_payment_sepa">
+<script>
+
+(function($) {
+    $(document).ready(function() {
+		
+		$('#sepa_mandate').click(function () {
+			$('#sepa_mandate_details_desc').toggle();
+		});
+		
+		$('#submit_button_2').on('click', function(event) {
+            var sepaName = $.trim($('#nnsepa_owner').val());
+			var sepaAcno = $.trim($('#nnsepa_iban').val());
+            if(sepaName == '' || sepaAcno == '') {
+                jq_alert('Your account details are invalid');
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        });
+        
+        $('#nnsepa_iban').keyup(function (event) {
+                           this.value = this.value.toUpperCase();
+                           var field = this.value;
+                           var value = "";
+                           for(var i = 0; i < field.length;i++){
+                                   if(i <= 1){
+                                           if(field.charAt(i).match(/^[A-Za-z]/)){
+                                                   value += field.charAt(i);
+                                           }
+                                   }
+                                   if(i > 1){
+                                           if(field.charAt(i).match(/^[0-9]/)){
+                                                   value += field.charAt(i);
+                                           }
+                                   }
+                           }
+                           field = this.value = value;
+		});
+    });
+    
+
+})(jQuery);
+
+</script>
+
+</TMPL_IF>

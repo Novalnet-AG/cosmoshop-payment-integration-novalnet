@@ -1,0 +1,104 @@
+use strict;
+
+my $setupkey = "xpl_novalnet";
+
+my %defaults = (
+
+    'en_novalnet_payment_failure'        => 'Payment Failed',
+    'de_novalnet_payment_failure'        => 'Zahlung fehlgeschlagen ',
+
+    'en_novalnet_test_mode'              => 'Test order',
+    'de_novalnet_test_mode'              => 'Testbestellung',
+
+    'en_novalnet_payment_method'         => 'Payment method',
+    'de_novalnet_payment_method'         => 'Zahlungsart',
+    
+    'en_novalnet_guarantee_info'         => 'This is processed as a guarantee payment',
+    'de_novalnet_guarantee_info'         => 'Diese Transaktion wird mit Zahlungsgarantie verarbeitet',
+    
+    'en_novalnet_cashpayment_slip_exp_date'         => 'Slip expiry date',
+    'de_novalnet_cashpayment_slip_exp_date'         => 'Verfallsdatum des Zahlscheins',
+    
+    'en_novalnet_cashpayment_store'         => 'Store(s) near you',
+    'de_novalnet_cashpayment_store'         => 'Barzahlen-Partnerfiliale in Ihrer Nähe',
+    
+    'en_novalnet_guarantee_sepa_info'    => 'Your order is under verification and we will soon update you with the order status. Please note that this may take upto 24 hours.',
+    'de_novalnet_guarantee_sepa_info'    => 'Ihre Bestellung wird derzeit überprüft. Wir werden Sie in Kürze über den Bestellstatus informieren. Bitte beachten Sie, dass dies bis zu 24 Stunden dauern kann.',
+    
+    'en_novalnet_guarantee_invoice_info' => 'Your order is under verification and once confirmed, we will send you our bank details to where the order amount should be transferred. Please note that this may take upto 24 hours.',
+    'de_novalnet_guarantee_invoice_info' => 'Ihre Bestellung ist unter Bearbeitung. Sobald diese bestätigt wurde, erhalten Sie alle notwendigen Informationen zum Ausgleich der Rechnung. Wir bitten Sie zu beachten, dass dieser Vorgang bis zu 24 Stunden andauern kann.',
+
+    'en_novalnet_tid'                    => 'Novalnet transaction ID',
+    'de_novalnet_tid'                    => 'Novalnet-Transaktions-ID',
+
+    'en_novalnet_transfer_amount_text'   => 'Please transfer the amount to the below mentioned account.',
+    'de_novalnet_transfer_amount_text'   => 'Bitte überweisen Sie den Betrag auf das unten stehende Konto.',
+
+    'en_novalnet_due_date_text'          => 'Due date',
+    'de_novalnet_due_date_text'          => 'Fälligkeitsdatum',
+
+    'en_novalnet_account_holder_text'    => 'Account holder : ',
+    'de_novalnet_account_holder_text'    => 'Kontoinhaber : ',
+
+    'en_novalnet_amount_text'            => 'Amount',
+    'de_novalnet_amount_text'            => 'Betrag',
+
+    'en_novalnet_multi_reference'        => 'Please use any of the following payment references when transferring the amount. This is necessary to match it with your corresponding order:',
+    'de_novalnet_multi_reference'        => 'Bitte verwenden Sie einen der unten angegebenen Verwendungszwecke für die Überweisung. Nur so kann Ihr Geldeingang Ihrer Bestellung zugeordnet werden:',
+
+    'en_novalnet_order_no'               => 'Order No',
+    'de_novalnet_order_no'               => 'Bestellnummer',
+
+    'en_novalnet_reference_text'         => 'Payment Reference ',
+    'de_novalnet_reference_text'         => 'Verwendungszweck ',
+
+    'en_novalnet_reference_text1'        => 'Payment Reference 1',
+    'de_novalnet_reference_text1'        => '1. Verwendungszweck ',
+
+    'en_novalnet_reference_text2'        => 'Payment Reference 2',
+    'de_novalnet_reference_text2'        => '2. Verwendungszweck ',
+
+    'en_novalnet_ac_error'               => 'Your account details are invalid',
+    'de_novalnet_ac_error'               => 'Ihre Kontodaten sind ungültig.',
+
+    'en_novalnet_cc_3d'                  => 'Your account details are invalid',
+    'de_novalnet_cc_3d'                  => 'Ihre Kontodaten sind ungültig.',
+
+    'en_novalnet_basic_params_not_valid' => 'Basic parameter not valid',
+    'de_novalnet_basic_params_not_valid' => 'Ungültige Parameter für die Händlereinstellungen',
+    
+    'en_info_novalnet_bookback_message_text' => 'Novalnet callback received. Refund/Bookback executed successfully for the TID: %shoptid% with amount %amount% on %timestamp%.',
+    'de_info_novalnet_bookback_message_text' => 'Novalnet-Callback-Meldung erhalten: Rückerstattung / Bookback erfolgreich ausgeführt für die TID:  %shoptid%: Betrag:%amount% am %timestamp%. TID der Folgebuchung:  %shoptid%',
+    
+    'en_info_novalnet_cancelled_tid_text' => 'Novalnet callback received. The transaction has been canceled on %timeStampDate%  %timeStampTime%',
+    'de_info_novalnet_cancelled_tid_text' => 'Novalnet-Callback-Nachricht erhalten: Die Transaktion wurde am %timeStampDate% um %timeStampTime% Uhr storniert',
+    
+    'en_info_novalnet_confirm_message_text' => 'Novalnet callback received. The transaction has been confirmed on %timeStampDate% %timeStampTime%',
+    'de_info_novalnet_confirm_message_text' => 'Novalnet-Callback-Nachricht erhalten: Die Buchung wurde am %timeStampDate% um %timeStampTime% Uhr bestätigt.',
+    
+    'en_info_novalnet_pending_message_text' => 'The transaction status has been changed from pending to on-hold for the TID: %shoptid% on %timeStampTime% %timeStampTime%.',
+    'de_info_novalnet_pending_message_text' => 'Der Status der Transaktion mit der TID: %shoptid% wurde am %timeStampDate% um %timeStampDate% Uhr von ausstehend auf ausgesetzt geändert.',
+    
+    'en_info_novalnet_chargeback_message_text' => 'Novalnet callback received. Chargeback executed successfully for the TID: %shoptid% with amount %amount% on %timestamp%.',
+    'de_info_novalnet_chargeback_message_text' => 'Novalnet-Callback-Nachricht erhalten. Chargeback erfolgreich ausgeführt für die TID: %shoptid% mit dem Betrag %amount% am %timestamp%.',
+    
+    'en_info_novalnet_subsequent_tid_text' => 'The subsequent TID: %tid%',
+    'de_info_novalnet_subsequent_tid_text' => 'TID der Folgebuchung: %tid%',
+    
+    'en_info_novalnet_hash_check_failed' => 'While redirecting some data has been changed. The hash check failed.',
+    'de_info_novalnet_hash_check_failed' => 'Während der Umleitung wurden einige Daten geändert. Die Überprüfung des Hashes schlug fehl',
+    
+    'en_info_novalnet_paid_tid_text' => 'Please refer PAID transaction in our Novalnet Admin Portal with the TID: %tid%',
+    'de_info_novalnet_paid_tid_text' => 'Bitte suchen Sie nach der bezahlten Transaktion in unserer Novalnet-Händleradminportal mit der TID: %tid%',
+    
+    'en_info_novalnet_callback_message_text' => 'Novalnet Callback Script executed successfully for the TID: %shoptid% with amount %amount% on %timestamp%.',
+    'de_info_novalnet_callback_message_text' => 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %shoptid% mit dem Betrag %amount% %timestamp%.',
+    
+    'en_info_novalnet_communication_break' => 'Novalnet Callback Script executed successfully for the TID: %shoptid% with amount %amount% on %timestamp%.',
+    'de_info_novalnet_communication_break' => 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %shoptid% mit dem Betrag %amount% am , um %timestamp% Uhr.',
+            
+
+   );
+
+$main::global_setup_defaults{$setupkey} = \%defaults;
+1;

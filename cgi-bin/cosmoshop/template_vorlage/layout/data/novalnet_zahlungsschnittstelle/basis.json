@@ -1,0 +1,218 @@
+{
+   "css_parameter" : {},
+   "parent" : "basis",
+   "texte" : {
+      "Hilfe_2" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "" : "Bei American Express ist die Kartenprüfnummer eine vierstellige Nummer, die auf der Vorderseite rechts oben aufgedruckt ist."
+         }
+      },
+      "novalnet_birthday" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Geburtstag *"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Birthday *"
+         }
+      },
+      "nnsepa_ac_info" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Please enter your account details"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Please enter your account details"
+         }
+      },
+      "nnsepa_owner" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Kontoinhaber *"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Account holder *"
+         }
+      },
+      "nnsepa_acno" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "IBAN *"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "IBAN *"
+         }
+      },
+      "nnsepa_ibanconf" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Ich erteile hiermit das SEPA-Lastschriftmandat (elektronische Übermittlung) und bestätige, dass die Bankverbindung korrekt ist."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "I hereby grant the mandate for the SEPA direct debit (electronic transmission) and confirm that the given bank details are correct!"
+         }
+      },
+      "nnsepa_mandateAuthorise" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Ich ermächtige den Zahlungsempfänger, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "I authorise (A) Novalnet AG to send instructions to my bank to debit my account and (B) my bank to debit my account in accordance with the instructions from Novalnet AG."
+         }
+      },
+      "nnsepa_mandateCreditor" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Gläubiger-Identifikationsnummer: DE53ZZZ00000004253"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Creditor identifier: DE53ZZZ00000004253"
+         }
+      },
+      "nnsepa_mandateNote" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Hinweis: "
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Note: "
+         }
+      },
+      "nnsepa_mandateEntitled" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "You are entitled to a refund from your bank under the terms and conditions of your agreement with bank. A refund must be claimed within 8 weeks starting from the date on which your account was debited."
+         }
+      },
+      "novalnet_sepa_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Sobald Sie die Bestellung absenden, wird der Betrag von Ihrem Konto abgebucht."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Once you send the order, the amount will be debited from your account."
+         }
+      },
+      "novalnet_cc_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Sobald Sie die Bestellung absenden, wird der Betrag von Ihrer Kreditkarte abgebucht."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Once you send the order, the amount will be debited from your credit card"
+         }
+      },
+      "nncc_ac_info" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Please enter your card details"
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Please enter your card details"
+         }
+      },
+      "novalnet_inv_prepayment_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Sobald Sie die Bestellung absenden, erhalten Sie eine E-Mail mit den Kontodaten, um die Zahlung abzuschließen."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Once you send the order, you will receive an e-mail with the account details to complete the payment."
+         }
+      },
+      "novalnet_barzahlen_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Sobald Sie die Bestellung abgeschickt haben, erhalten Sie von Barzahlen einen Zahlschein (zum Ausdrucken oder per SMS), mit dem Sie Ihren Online-Einkauf bei einem unserer Partner im Einzelhandel (z.B. Supermarkt) bezahlen können."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Once you send the order, you will get a payment slip from Barzahlen (print/SMS) to pay your online purchase at one of our retail partners (e.g. supermarket)."
+         }
+      },
+      "novalnet_redirect_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Sie werden auf die sichere Zahlungsseite von Novalnet weitergeleitet, um die Zahlung abzuschließen."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "You will be redirected to the Novalnet secure payment page to complete the payment."
+         }
+      },
+      "novalnet_redirect_warnning_markup" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Dazu ist es erforderlich, dass Sie die Zahlungsseite nicht schließen oder neu laden, bis die Transaktion abgeschlossen ist. Sie werden danach zum Shop zurückgeleitet."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards"
+         }
+      },
+      "novalnet_test_transaction" : {
+         "de" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "Die Zahlung wird im Testmodus durchgeführt, daher wird der Betrag für diese Transaktion nicht eingezogen."
+         },
+         "en" : {
+            "link" : "",
+            "link_extern" : 0,
+            "wert" : "The payment will be processed in the test mode therefore amount for this transaction will not be charged."
+         }
+      }
+   },
+   "timestamp" : 1437561112
+}

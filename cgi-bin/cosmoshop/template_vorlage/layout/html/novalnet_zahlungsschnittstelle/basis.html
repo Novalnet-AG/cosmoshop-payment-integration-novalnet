@@ -1,0 +1,261 @@
+%schnittstellen_parameter%
+<div id="novalnet_payment" class="secondInfoBox cosmo-row-lg-100 cosmo-row-tb-la-100 cosmo-row-tb-po-100 cosmo-row-sp-100 cosmo-row">
+    <div class="leftccdata">
+        <div class="cartboxmiddle">
+            <div class="simplebox">
+                <table border="0" cellpadding="0" cellspacing="0" class='nn-table'>
+                    <TMPL_IF NAME="novalnet_payment_sepa">
+                    <tr>
+                        <th class="header box" colspan='2'>%text_nnsepa_ac_info%</th>
+                    </tr>
+                    <tr>
+                        <td class="leftcol">%text_nnsepa_owner%</td>
+                        <td><input type="text" name="novalnet_sepa_owner" value="%novalnet_sepa_holder%"id="nnsepa_owner" class="nn-input"/></td>
+                    </tr>
+                    <tr>
+                        <td class="leftcol">%text_nnsepa_acno%</td>
+                        <td><input type="text" name="nnsepa_iban" id="nnsepa_iban" class="nn-input" autocomplete="off"/></td>
+                    </tr>
+                    <tr>
+                        <td class="leftcol">%text_novalnet_birthday%</td>
+                        <td><input data-reqfield="false" placeholder="" type="date" id="novalnet_sepa_dob" name="novalnet_sepa_dob" value="%dob_value%" class="cosmoshop edit bday gruen" style="padding: 7px;width: 100%;"/></td>
+                    </tr>
+                    <tr>
+                        <td class="leftcol" colspan="2"><label for="nnsepa_ibanconf" class="font-2 color-3"><span>%text_nnsepa_ibanconf%</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="header box" colspan='2'>%text_novalnet_sepa_markup%</th>
+                    </tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_payment_cc">
+						<input type="hidden" name="novalnet_cc_hash" value="" id="novalnet_cc_hash">
+						<input type="hidden" name="novalnet_cc_uniqueid" value="" id="novalnet_cc_uniqueid">
+                            <tr>
+                                <th class="header box" colspan='2'>%text_nnsepa_ac_info%</th>
+                            </tr>
+                            <td colspan = '2'>
+                                <iframe id = "nnIframe" name = "nnIframe" frameborder="0"></iframe>
+                            </td>
+                            <tr>
+								<th class="header box" colspan='2'>%text_novalnet_cc_markup%</th>
+							</tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_payment_inv_prepayment">
+						<TMPL_IF NAME="novalnet_invoice">
+							<tr>
+								<td class="leftcol">%text_novalnet_birthday%</td>
+								<td><input data-reqfield="false" placeholder="" type="date" id="novalnet_sepa_dob" name="novalnet_sepa_dob" value="%dob_value%" class="cosmoshop edit bday gruen" style="padding: 7px;width: 100%;"/></td>
+							</tr>
+						</TMPL_IF>
+                    <tr>
+                        <th class="header box" colspan='2'>%text_novalnet_inv_prepayment_markup%</th>
+                    </tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_payment_barzahlen">
+                    <tr>
+                        <th class="header box" colspan='2'>%text_novalnet_barzahlen_markup%</th>
+                    </tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_payment_redirect">
+                        <TMPL_LOOP NAME="request_params">
+                            <input type="hidden" name="%name%" value="%value%">
+                        </TMPL_LOOP>
+                        <tr>
+                            <th class="header box" colspan='2'>%text_novalnet_redirect_markup%</th>
+                        </tr>
+                        <tr>
+                            <th class="header box" colspan='2'>%text_novalnet_redirect_warnning_markup%</th>
+                        </tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_notify_buyer">
+                        <tr>
+                            <th class="header box" colspan='2' style="color:red">%novalnet_notify_buyer%</th>
+                        </tr>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="novalnet_test_mode">
+                        <tr>
+                            <th class="header box" colspan='2' style="color:red">%text_novalnet_test_transaction%</th>
+                        </tr>
+                    </TMPL_IF>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<TMPL_IF NAME="novalnet_payment_redirect">
+<script>
+(function($) {
+    $(document).ready(function() {
+        $('#submit_button_2').on('click', function(event) {
+            $('#buyform').submit();
+        });
+    });
+})(jQuery);
+</script>
+</TMPL_IF>
+
+<TMPL_IF NAME="novalnet_payment_cc">
+<script>
+(function($) {
+    $(document).ready(function() {
+		document.getElementById("nnIframe").onload = function() {novalnetIframe()};
+		var novalnetTargetOrgin = 'https://secure.novalnet.de';
+		
+		$('#submit_button_2').on('click', function(event) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			gethash();
+		});
+						
+		function novalnetIframe()
+		{	
+			//Default iframe style
+				
+				var textObj   = {
+					card_holder: {
+						labelText: '',
+						inputText: '',
+					},
+					card_number: {
+						labelText: '',
+						inputText: '',
+					},
+					expiry_date: {
+						labelText: '',
+						inputText: '',
+					},
+					cvc: {
+						labelText: '',
+						inputText: '',
+					},
+					cvcHintText: '',
+					errorText: '',
+				};
+				
+			var request = {
+					callBack    : 'createElements',
+					customText: textObj,
+					customStyle : {
+						labelStyle : '',
+						inputStyle : '',
+						styleText  : '.input-group{text-transform: uppercase;font-size: 14px;font-weight: 800;float: left;font-family: Open Sans Condensed,sans-serif;color: #424245;}.label-group{text-transform: uppercase;font-size: 14px;font-weight: 800;float: left;font-family: Open Sans Condensed,sans-serif;color: #424245;}',
+						card_holder : {
+							labelStyle : '',
+							inputStyle : '',
+						},
+						card_number : {
+							labelStyle : '',
+							inputStyle : '',
+						},
+						expiry_date : {
+							labelStyle : '',
+							inputStyle : '',
+						},
+						cvc : {
+							labelStyle : '',
+							inputStyle : '',
+						},                
+					},
+				};
+				var iframe = $('#nnIframe')[0];
+				iframeContent = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument.defaultView;
+				iframeContent.postMessage(request, novalnetTargetOrgin);
+				iframeContent.postMessage({callBack : 'getHeight'}, novalnetTargetOrgin);
+				
+				if ( window.addEventListener) {
+					window.addEventListener('message', function (e) {
+						addEvent(e);
+					}, false);
+				} else {
+					window.attachEvent('onmessage', function (e) {
+						addEvent(e);
+					});
+				}
+						
+				function addEvent(e)
+				{
+					if (e.origin === 'https://secure.novalnet.de') {
+					var data = Function('"use strict";return (' + e.data + ')')();
+					if (data['callBack'] == 'getHash') {
+						e.preventDefault();
+						if (data['error_message'] != undefined) {
+								jq_alert(data['error_message']);
+						} else {
+								$('#novalnet_cc_hash').val(data['hash']);
+								$('#novalnet_cc_uniqueid').val(data['unique_id']);
+								$("input[name='pan_hash'").val(data['hash']);
+								$("input[name='unique_id'").val(data['unique_id']);
+								$('#buyform').submit();
+						}
+					} else if (data['callBack'] == 'getHeight') {
+						$('#nnIframe').attr('height',data['contentHeight']);
+						e.preventDefault();
+						}
+					}
+				}
+				
+				// Function to retrieve hash from iframe
+				function gethash() {
+					var iframe= $('#nnIframe')[0].contentWindow ? $('#nnIframe')[0].contentWindow : $('#nnIframe')[0].contentDocument.defaultView;
+					iframe.postMessage(JSON.stringify({callBack: 'getHash'}), novalnetTargetOrgin);
+				}
+		}
+    });
+})(jQuery);
+</script>
+<style>
+</style>
+</TMPL_IF>
+
+<TMPL_IF NAME="novalnet_payment_sepa">
+
+<style>
+.nn-input{width:50%}
+</style>
+
+<script>
+
+(function($) {
+    $(document).ready(function() {
+		
+		$('#submit_button_2').on('click', function(event) {
+            var sepaName = $.trim($('#nnsepa_owner').val());
+			var sepaAcno = $.trim($('#nnsepa_iban').val());
+            if(sepaName == '' || sepaAcno == '') {
+                jq_alert('Your account details are invalid');
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        });
+		
+		
+		$('#nnsepa_iban').keyup(function (event) {
+                           this.value = this.value.toUpperCase();
+                           var field = this.value;
+                           var value = "";
+                           for(var i = 0; i < field.length;i++){
+                                   if(i <= 1){
+                                           if(field.charAt(i).match(/^[A-Za-z]/)){
+                                                   value += field.charAt(i);
+                                           }
+                                   }
+                                   if(i > 1){
+                                           if(field.charAt(i).match(/^[0-9]/)){
+                                                   value += field.charAt(i);
+                                           }
+                                   }
+                           }
+                           field = this.value = value;
+		});
+    });
+    
+
+})(jQuery);
+</script>
+</TMPL_IF>
+<style>
+.nn-table td, .nn-table th{padding:5px;}
+</style>
