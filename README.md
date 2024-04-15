@@ -1,4 +1,4 @@
-# Cosmo shop Payment Module by Novalnet
+# Cosmoshop Payment Module by Novalnet
 Novalnet’s <a href="https://www.novalnet.com/modul/cosmoshop-payment-module">Cosmo shop payment module</a> simplifies your daily work by automating the entire payment process, from checkout till collection. This payment module is designed to help you increase sales by offering various payment methods on a one-page checkout.
 
 ## Advantages
@@ -41,7 +41,7 @@ Novalnet’s <a href="https://www.novalnet.com/modul/cosmoshop-payment-module">C
 See our License Agreement at: https://www.novalnet.com/payment-plugins/free/license
 
 ## Documentation & Support
-For more information about the Cosmoshop 2 Payment Integration by Novalnet, please get in touch with us: <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
+For more information about the Cosmoshop Payment Integration by Novalnet, please get in touch with us: <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
 
 Novalnet AG<br>
 Zahlungsinstitut (ZAG)<br>
