@@ -2,7 +2,6 @@
 Novalnet’s <a href="https://www.novalnet.com/modul/cosmoshop-payment-module">Cosmo shop payment module</a> simplifies your daily work by automating the entire payment process, from checkout till collection. This payment module is designed to help you increase sales by offering various payment methods on a one-page checkout.
 
 ## Advantages
-
    * Easy configuration for all payment methods
    * One platform for all relevant payment types and related services
    * Complete automation of all payment processes
@@ -42,13 +41,16 @@ Novalnet’s <a href="https://www.novalnet.com/modul/cosmoshop-payment-module">C
 See our License Agreement at: https://www.novalnet.com/payment-plugins/free/license
 
 ## Documentation & Support
-If you have any inquiries, please contact one of the following departments:
-### Technical support
-technic@novalnet.de<br>
-+49 89 9230683-19<br>
-### Sales team
-sales@novalnet.de<br>
-+49 89 9230683-20<br>
+For more information about the Cosmoshop 2 Payment Integration by Novalnet, please get in touch with us: <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
+
+Novalnet AG<br>
+Zahlungsinstitut (ZAG)<br>
+Gutenbergstraße 7<br>
+D-85748 Garching<br>
+Deutschland<br>
+E-mail: sales@novalnet.de<br>
+Tel: +49 89 9230683-20<br>
+Web: www.novalnet.de
 
 ## Who is Novalnet?
 <a href="https://www.novalnet.de/">Novalnet</a> is a German payment provider offering payment gateway for online merchants and marketplaces worldwide. Our PCI DSS certified SaaS engine is designed to automate the entire payment process from checkout to debt collection – with a single payment integration. We cover real-time risk management; secure payments (local + international) through escrow accounts, integrate receivables management, dynamic member and subscription management as well as other customized payment solutions for your shop systems.
